@@ -26,7 +26,8 @@ bool CandleApiDevice::open()
     qDebug() << "CandleApiDevice::open";
 
     _lstn = new CandleApiListener(*this);
-    connect(_lstn, SIGNAL(readyRead()), this, SLOT(dataAvailable()));
+    // Removed becasue neither the signal nor slot exist. Originated in Qt5 Plugin
+    //connect(_lstn, SIGNAL(readyRead()), this, SLOT(dataAvailable()));
 
     candle_handle handle = _iface->getHandle();
     uint32_t flags = 0;
